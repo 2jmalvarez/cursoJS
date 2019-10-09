@@ -28,8 +28,22 @@ window.addEventListener('load', function () {
 
 function manejarSubmit(e) {
     e.preventDefault();
-    var frm = e.target;
+    //   var frm = e.target;
 
+    let nuevaPersona = traerPersona();
+
+    console.log(nuevaPersona);
+
+    listaPersonas.push(nuevaPersona);
+
+    cargarFormulario(nuevaPersona);
+
+    limpiarFormulario();
+
+}
+
+
+function traerPersona() {
     let nombre = document.getElementById("txtNombre").value;
     let apellido = document.getElementById("txtApellido").value;
     let edad = document.getElementById("txtEdad").value;
@@ -47,17 +61,41 @@ function manejarSubmit(e) {
     let pais = document.getElementById("selPais").value;
 
 
-    
 
-    let nuevaPersona = new Persona(nombre, apellido, edad, genero, maneja, nada, bici, pais);
+    let nuevaPersona = new Persona(nombre, apellido, edad, genero, maneja, nada, bici, pais)
+    return nuevaPersona;
+}
 
-    listaPersonas.push(nuevaPersona);
-
-    console.log(nuevaPersona);
-
+function cargarFormulario(nuevaPersona) {
 
     document.getElementById("txtNombre2").value = nuevaPersona.nombre;
+    document.getElementById("txtApellido2").value = nuevaPersona.apellido;
+    document.getElementById("txtEdad2").value = nuevaPersona.edad;
+    if (nuevaPersona.genero == "masculino") {
+        document.getElementById("rdoMasculino2").checked = true;
+    } else {
+        document.getElementById("rdoFemenino2").checked = true;
+    }
+    document.getElementById("chkManeja2").checked = nuevaPersona.meneja;
+    document.getElementById("chkNada2").checked = nuevaPersona.nada;
+    document.getElementById("chkBici2").checked = nuevaPersona.bici;
+    document.getElementById("selPais2").value = nuevaPersona.pais;
+
 
 }
 
+
+function limpiarFormulario() {
+
+
+    document.getElementById("txtNombre").value = "";
+    document.getElementById("txtApellido").value = "";
+    document.getElementById("txtEdad").value = "";
+    document.getElementById("rdoMasculino").checked = true;
+    document.getElementById("rdoFemenino").checked = false;
+    document.getElementById("chkManeja").checked = false;
+    document.getElementById("chkNada").checked = false;
+    document.getElementById("chkBici").checked = false;
+    document.getElementById("selPais").value = "ar";
+}
 
