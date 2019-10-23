@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../clase 7/Tabla dinamica/personas.js"></script>
+    <script src="./pers.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        let numeros = [10, 8, 3, 4, 100];
+
+        // console.log(numeros);
+
+        // console.log(numeros.sort());
+
+        // console.log(numeros.sort((a,b)=>{ 
+        //     return a-b;
+        // }));
+
+        // console.log(
+        //     personas
+        //         .sort((a, b) => { return a.first_name > b.first_name ? -1 : 1; })
+        //         .sort((a, b) => { return a.gender > b.gender ? -1 : 1; })
+
+        // );
+
+        let numeros2 = [];
+
+        numeros.forEach((a, b, c) => {
+            numeros2[b] = a * 2;
+
+
+        });
+
+        // console.log(numeros);
+        // console.log(numeros2);
+
+        // map
+
+        let nombreGen = personas.map(a => a.first_name + " " + a.last_name);
+        // filter
+
+        let varones = personas.filter(a => a.gender === "Male");
+
+        let NombreMujeres = personas
+            .filter(a => a.gender === "Male")
+            .map(a => a.first_name + " " + a.last_name);
+
+        numeros = [2, 5, 7, 8, 10];
+        console.log(numeros);
+        x = numeros.reduce((a, b, c, d) => {
+            console.log("anterior = " + a);
+            console.log("actual = " + b);
+            console.log("indice = " + c);
+            console.log("vector = [" + d + "]");
+
+
+            console.log("   ");
+
+            return a + b;
+
+        }, 0);
+
+        console.log("x = " + x);
+
+        let aux = 0;
+        for (a in numeros) aux += parseInt(a);
+        console.log(aux);
+
+
+
+        let promEdad =
+
+            pers
+                .filter((a) => a.genero = "Female")
+                .map(a => a.edad)
+                .reduce((ant, actual, i, vec) => (ant + actual) / 2, 0)
+            ;
+
+
+        console.log(promEdad);
+
+        prom2 = pers
+            .filter(a => a.genero = "Female")
+            .map(a => a.edad);
+
+        console.log(prom2
+            );
+
+    </script>
+</body>
+
+</html>
